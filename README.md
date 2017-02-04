@@ -132,9 +132,9 @@ module.exports = function(bp) {
                 bot.reply(message, 'OK! I will update my dossier...');
 
                 controller.storage.users.get(message.user, function(err, user) {
-                  if (!user) {
+                  if (!user || !user.id) {
                     user = {
-                      id: message.usebr,
+                      id: message.user,
                     };
                   }
                   user.name = convo.extractResponse('nickname');
