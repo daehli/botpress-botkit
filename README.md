@@ -171,4 +171,4 @@ Get an invite and join us now! 👉[https://slack.botpress.io](https://slack.bot
 
 ## License
 
-botpress-scheduler is licensed under [AGPL-3.0](/LICENSE)
+botpress-botkit is licensed under [AGPL-3.0](/LICENSE)
