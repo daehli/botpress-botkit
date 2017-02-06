@@ -88,6 +88,15 @@ function BotpressBot(bp, configuration) {
 
     bot.send = function(message, cb) {
       message.__botkit_tracked = true
+      
+      const mergeIfMissing = name => {
+        if (!message[name] && message.raw && message.raw[name]) {
+          message[name] = message.raw[name]
+        }
+      }
+
+      ['platform', 'type', 'text'].forEach(mergeIfMissing)
+
       bp.middlewares.sendOutgoing(message)
       cb && cb()
     }
@@ -105,13 +114,13 @@ function BotpressBot(bp, configuration) {
         var msg = {
           timestamp: Date.now(),
           user: src.user,
-          raw: { to: src.user, message: resp.text || resp },
-          platform: src.channel,
-          channel: src.channel,
+          raw: { to: src.user && src.user.id, message: resp.text || resp },
+          platform: src.platform || src.channel,
+          channel: src.platform || src.channel,
           type: 'text',
           text: resp.text || resp
         }
-
+        
         return bot.say(msg, cb)
       }
 
