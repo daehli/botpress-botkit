@@ -97,6 +97,8 @@ function BotpressBot(bp, configuration) {
 
       ['platform', 'type', 'text'].forEach(mergeIfMissing)
 
+      message.raw.message = message.text || message.raw.message;
+
       bp.middlewares.sendOutgoing(message)
       cb && cb()
     }
