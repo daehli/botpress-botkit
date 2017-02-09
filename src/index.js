@@ -139,6 +139,10 @@ function BotpressBot(bp, configuration) {
       botkit.startConversation(this, message, cb)
     }
 
+    bot.createConversation = function(message, cb) {
+      botkit.createConversation(this, message, cb)
+    }
+
     bot.findConversationByUser = function(user) {
       for (var t = 0; t < botkit.tasks.length; t++) {
         for (var c = 0; c < botkit.tasks[t].convos.length; c++) {
