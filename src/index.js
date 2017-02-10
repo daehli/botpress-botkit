@@ -97,6 +97,8 @@ function BotpressBot(bp, configuration) {
 
       ['platform', 'type', 'text'].forEach(mergeIfMissing)
 
+      message.raw.message = message.text || message.raw.message;
+
       bp.middlewares.sendOutgoing(message)
       cb && cb()
     }
@@ -137,6 +139,10 @@ function BotpressBot(bp, configuration) {
 
     bot.startConversation = function(message, cb) {
       botkit.startConversation(this, message, cb)
+    }
+
+    bot.createConversation = function(message, cb) {
+      botkit.createConversation(this, message, cb)
     }
 
     bot.findConversationByUser = function(user) {
