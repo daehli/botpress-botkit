@@ -7,7 +7,8 @@
   "botpress": {
     "menuText": "Botkit",
     "menuIcon": "compare_arrows",
-    "webBundle": "bin/web.bundle.js"
+    "webBundle": "bin/web.bundle.js",
+    "noInterface": true
   },
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
