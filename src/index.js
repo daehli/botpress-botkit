@@ -1,10 +1,9 @@
 const BotkitCore = require('botkit').core
 
 module.exports = {
-  init: function(bp) {
-  },
-  ready: function(bp) {
-  },
+  config: { },
+  init: function(bp) { },
+  ready: function(bp) { },
   BotpressBot: BotpressBot
 }
 
