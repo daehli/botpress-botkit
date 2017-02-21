@@ -115,7 +115,7 @@ function BotpressBot(bp, configuration) {
         var msg = {
           timestamp: Date.now(),
           user: src.user,
-          raw: { to: src.user && src.user.id, message: resp.text || resp },
+          raw: { to: (src.user && src.user.id) || src.user, message: resp.text || resp },
           platform: src.platform || src.channel,
           channel: src.platform || src.channel,
           type: 'text',
