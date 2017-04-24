@@ -1,4 +1,7 @@
 const BotkitCore = require('botkit').core
+const BitkitFacebook = require('botkit').Facebookbot;
+const Slackbot = require('botkit').Slackbot;
+const BitkitTwilio = require('botkit').Twiliobot;
 
 module.exports = {
   config: { },
@@ -8,6 +11,7 @@ module.exports = {
 }
 
 function BotpressBot(bp, configuration) {
+
 
   var botpressBot = BotkitCore(Object.assign({
     logger: bp.logger
@@ -87,7 +91,7 @@ function BotpressBot(bp, configuration) {
 
     bot.send = function(message, cb) {
       message.__botkit_tracked = true
-      
+
       const mergeIfMissing = name => {
         if (!message[name] && message.raw && message.raw[name]) {
           message[name] = message.raw[name]
@@ -121,7 +125,7 @@ function BotpressBot(bp, configuration) {
           type: 'text',
           text: resp.text || resp
         }
-        
+
         return bot.say(msg, cb)
       }
 
